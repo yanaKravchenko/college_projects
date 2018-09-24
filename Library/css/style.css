@@ -1,0 +1,15 @@
+/*
+Programmation interactive client-serveur. TP2 - Bibliotheque
+fichier de style css
+Auteur: Kravchenko Iana
+Date: august 2018
+*/
+
+/* pour tableau de recherche*/
+#idTitre:hover, #idAnnee:hover, #idAuteur:hover, #idEditeur:hover, #idEvaluation:hover, #idIsbn:hover {
+    background-color: grey;
+}
+
+#tdTitre:focus, #tdAnnee:focus, #tdAuteur:focus, #tdEditeur:focus, #tdEvaluation:focus, #tdIsbn:focus {
+    color: red;
+}

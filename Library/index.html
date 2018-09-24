@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang=fr>
+<!--Programmation interactive client-serveur. TP2 - Bibliotheque
+Auteur: Kravchenko Iana
+Date: august 2018-->
+<head>
+    <title>Bibliotheque</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="description" content="bibliotheque">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--scripts: jquery, jquery-ui, popper, bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!--header-->
+<header>
+</header>
+<div class="container">
+    <!-- comme un titre avec logo -->
+    <nav class="navbar navbar-light bg-primary">
+        <a class="h2" href="#">
+            <img src="image/tux.png" width="50" height="auto" class="d-inline-block align-top" alt="image">
+            Bibliothèque
+        </a>
+    </nav>
+    <!-- Bouton trigger modal -->
+    <button type="button" id="butAjouteLivre" class="btn btn-light btn-lg mb-5 mr-3 font-weight-bold"
+            data-toggle="modal"
+            data-target="#Modal"><img src="image/plus.png" width="20" height="auto" class="d-inline-block mr-2"
+                                      alt="plus">Ajouter un livre
+    </button>
+    <button type="button" id="voirTousLivres" class="btn btn-light btn-lg mb-5 mr-3 font-weight-bold"><img
+            src="image/list.png" width="20"
+            height="auto"
+            class="d-inline-block mr-2"
+            alt="plus">Voir tous les livres
+    </button>
+
+    <div id="message" class="text-light bg-secondary mb-2 px-3"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Ajouter un livre</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        Titre:<label for="titre"></label>
+                        <input type="text" class="form-control" id="titre">
+                        <div id="innerTitre" class="text-danger"></div>
+
+                        Auteur:<label for="auteur"></label>
+                        <input type="text" class="form-control" id="auteur">
+                        <div id="innerAuteur" class="text-danger"></div>
+
+                        Année:<label for="annee"></label>
+                        <input type="number" class="form-control" id="annee" autocomplete="annee">
+                        <div id="innerAnnee" class="text-danger"></div>
+
+                        Isbn:<label for="isbn"></label>
+                        <input type="number" class="form-control" id="isbn" autocomplete="isbn">
+                        <div id="innerIsbn" class="text-danger"></div>
+
+                        Éditeur:<label for="editeur"></label>
+                        <input type="text" class="form-control" id="editeur">
+                        <div id="innerEditeur" class="text-danger"></div>
+
+                        Évaluation:<label for="evaluation"></label>
+                        <input type="number" class="form-control" id="evaluation" autocomplete="evaluation">
+                        <div id="innerEvaluation" class="text-danger"></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button id="ajouteLivre" type="button" class="btn btn-primary">
+                        Sauvegarder
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Tableau de recherche-->
+    <table class="table table-bordered">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col" id="idTitre">Titre</th>
+            <th scope="col" id="idAuteur">Auteur</th>
+            <th scope="col" id="idAnnee">Année</th>
+            <th scope="col" id="idIsbn">Isbn</th>
+            <th scope="col" id="idEditeur">Éditeur</th>
+            <th scope="col" id="idEvaluation">Évaluation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr id="recherche">
+            <td id="tdTitre" contenteditable="true" onclick="autocompleteTitre()"></td>
+            <td id="tdAuteur" contenteditable="true" onclick="autocompleteAuteur()"></td>
+            <td id="tdAnnee" contenteditable="true" onclick="autocompleteAnnee()"></td>
+            <td id="tdIsbn" contenteditable="true" onclick="autocompleteIsbn()"></td>
+            <td id="tdEditeur" contenteditable="true" onclick="autocompleteEditeur()"></td>
+            <td id="tdEvaluation" contenteditable="true" onclick="autocompleteEvaluation()"></td>
+        </tr>
+        </tbody>
+    </table>
+    <!--Tableau pour affichage de livres-->
+    <table class="table table-bordered mt-5">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Titre</th>
+            <th scope="col">Auteur</th>
+            <th scope="col">Année</th>
+            <th scope="col">Isbn</th>
+            <th scope="col">Éditeur</th>
+            <th scope="col">Évaluation</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <!--Affichage dynamique ici-->
+        <tbody id='ajaxDiv'></tbody>
+    </table>
+</div>
+<!-- Optional JavaScript: Popper.js Bootstrap JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="ajaxRequest.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

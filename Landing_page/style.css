@@ -1,0 +1,154 @@
+/*TP1_CRÉATION DE SITES WEB 1
+Auteur: Kravchenko Iana
+Date: octobre 2017*/
+/*Pour lancer l'effet de mouvement, cliquez sur le logo et le bouton*/
+/*paramètres par défaut*/
+body {
+    font-size: 14pt;
+    width: 960px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #fffff0;
+    font-family: 'Roboto', sans-serif;
+}
+/*paramètres pour logo*/
+#logo {
+    width: 150px;
+    float: left;
+    /*paramètres pour rotation*/
+    -moz-transition: all 1s 0.1s ease-in;
+    -o-transition: all 1s 0.1s ease-in;
+    -webkit-transition: all 1s 0.1s ease-in;
+}
+#logo:hover {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+}
+/*paramètres pour nom et tagline*/
+#name {
+    margin-left: 180px;
+}
+#company-name {
+    margin: 0;
+    padding-top: 20px;
+    font-size: 40px;
+    font-weight: bold;
+}
+hr {
+    background-color: #0c6b56;
+    height: 5px;
+    width: 761px;
+    margin-left: 0;
+    border: none;
+}
+#company-tagline {
+    margin: 0;
+    font-size: 26px;
+
+    /*paramètres pour l'animation de tagline*/
+    animation-name: slideRight;
+    -webkit-animation-name: slideRight;
+
+    animation-duration: 5s;
+    -webkit-animation-duration: 3s;
+
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+
+    visibility: visible;
+}
+@keyframes slideRight {
+    0% {
+        transform: translateX(150%);
+    }
+    50% {
+        transform: translateX(-7%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+/*paramètres pour l'image*/
+#main_image {
+    width: 934px;
+    height: 380px;
+    margin: 8px;
+    border: 1px solid #000000;
+    /*box-shadow: 0 0 10px rgba(0,0,0,0.5);*/
+    box-sizing: border-box;
+}
+/*paramètres pour le formulaire*/
+form {
+    color: white;
+    background-color: rgba(98, 50, 38, 1);
+    border-color: #000000;
+    border-style: solid;
+    border-width: 1px;
+    padding: 25px 7px 7px 7px;
+    width: 270px;
+    height: 415px;
+    position: relative;
+    left: 620px;
+    top: -427px;
+    opacity: 0.95;
+    /*paramètres pour l'animation de formulaire*/
+    animation-name: slideBottom;
+    -webkit-animation-name: slideBottom;
+
+    animation-duration: 5s;
+    -webkit-animation-duration: 3s;
+
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+    visibility: visible;
+}
+@keyframes slideBottom {
+    0% {
+        transform: translateY(150%);
+    }
+    50% {
+        transform: translateY(-7%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+/*paramètres pour le contenu du formulaire*/
+form div {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+form input {
+    width: 100%;
+    height: 35px;
+    padding: 5px 12px 5px 12px;
+    margin-top: 20px;
+    border: 1px solid #000000;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+/*paramètres pour le bouton*/
+button {
+    margin: 32px auto;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    background-color: #0c6b56;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    border: none;
+}
+button:hover {
+    transform: scale(1.2);
+    background-color: #56545f;
+}
+
+
+
+
+
+
+

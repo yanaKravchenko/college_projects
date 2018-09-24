@@ -1,0 +1,66 @@
+<!--
+	TP 1 Programmation	interactive	client-serveur
+	Exercice 2 : Programmer	en	Javascript	un	jeu	de	puzzle
+	Auteur : Melnyk Svitlana et Kravchenko Iana
+	Date : juin 2018
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice_2</title>
+    <link rel="stylesheet" href="css_2.css">
+</head>
+<body>
+    <div id="contenu">
+
+        <!-- Entête de la page -->
+        <h1>Jeu de puzzle</h1>
+
+        <!-- Le corps de la page-->
+        <!-- Jeu de puzzle -->
+        <table id="jeu">
+            <tr>
+                <td onclick="init(this)">1</td>
+                <td onclick="init(this)">2</td>
+                <td onclick="init(this)">3</td>
+                <td onclick="init(this)">4</td>
+            </tr>
+            <tr>
+                <td onclick="init(this)">5</td>
+                <td onclick="init(this)">6</td>
+                <td onclick="init(this)">7</td>
+                <td onclick="init(this)">8</td>
+            </tr>
+            <tr>
+                <td onclick="init(this)">9</td>
+                <td onclick="init(this)">10</td>
+                <td onclick="init(this)">15</td>
+                <td onclick="init(this)">11</td>
+            </tr>
+            <tr>
+                <td onclick="init(this)">13</td>
+                <td onclick="init(this)">14</td>
+                <td onclick="init(this)">12</td>
+                <td onclick="init(this)"></td>
+            </tr>
+        </table>
+        <!-- Table avec des enregistrements -->
+        <div class="invisible">
+            <!--<h3>Nombre de coups: <span id="coups">0</span></h3>-->
+
+            <h3>Enregistrements de joueurs</h3>
+            <table id="record">
+                <tr id="tableau">
+                    <td>Nom du joueur</td>
+                    <td>Nombre de coups</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- javaScript -->
+    <script src="script_2.js"></script>
+</body>
+</html>

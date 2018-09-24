@@ -1,0 +1,68 @@
+/*
+    TP 1 Programmation	interactive	client-serveur
+    Exercice 2 :	Programmer	en	Javascript	un	jeu	de	puzzle
+    Auteur : Melnyk Svitlana et Kravchenko Iana
+    Date : juin 2018
+*/
+body {
+    text-align: center;
+}
+
+/* Jeu de puzzle */
+#jeu {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+#jeu td {
+    font-weight: bolder;
+    font-size: 20px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #222;
+    border-radius: 10px;
+    background: radial-gradient(circle, lightblue, blue, lightblue);
+    cursor: pointer;
+}
+
+/* Table avec des enregistrements */
+table {
+    border-spacing: 0;
+    empty-cells: hide;
+}
+
+table.record {
+    border-spacing: 0;
+    empty-cells: hide;
+}
+
+tr.tableau td {
+    padding: 10px 20px;
+    text-align: center;
+    border-bottom: 1px solid #F4EEE8;
+}
+
+tr:hover td {
+    background: lightskyblue;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+#record {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+
+#record th, td {
+    border: 1px solid black;
+}
